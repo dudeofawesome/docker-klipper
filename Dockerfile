@@ -6,7 +6,7 @@ LABEL maintainer="louis@orleans.io"
 ENV EULA false
 ENV RAM_MAX 8G
 
-VOLUME /kipper-config
+VOLUME /klipper-config
 
 WORKDIR /
 
@@ -21,4 +21,4 @@ RUN git clone https://github.com/KevinOConnor/klipper.git && \
   pip install -r /klipper/scripts/klippy-requirements.txt
 
 # CMD ls -la /klipper/klippy
-CMD python /klipper/klippy/klippy.py /kipper-config/printer.cfg
+CMD python /klipper/klippy/klippy.py /klipper-config/printer.cfg
