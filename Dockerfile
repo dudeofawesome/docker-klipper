@@ -3,6 +3,7 @@ FROM python:2-alpine
 LABEL maintainer="louis@orleans.io"
 
 VOLUME /klipper-config
+VOLUME /klipper/out/
 
 WORKDIR /
 
@@ -21,5 +22,9 @@ RUN git clone https://github.com/Klipper3d/klipper.git && \
 
 WORKDIR /klipper
 
+ENV LOGFILE="/var/log/klippy.log"
+
 # CMD ls -la /klipper/klippy
-CMD python /klipper/klippy/klippy.py /klipper-config/printer.cfg
+CMD python /klipper/klippy/klippy.py \
+  --logfile="$LOGFILE" \
+  /klipper-config/printer.cfg
