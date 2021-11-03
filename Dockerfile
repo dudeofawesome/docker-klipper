@@ -24,7 +24,6 @@ WORKDIR /klipper
 
 ENV LOGFILE="/var/log/klippy.log"
 
-# CMD ls -la /klipper/klippy
-CMD python /klipper/klippy/klippy.py \
-  --logfile="$LOGFILE" \
-  /klipper-config/printer.cfg
+ENTRYPOINT python /klipper/klippy/klippy.py \
+  "/klipper-config/printer.cfg" \
+  --logfile="$LOGFILE"
