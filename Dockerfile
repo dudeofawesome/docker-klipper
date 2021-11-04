@@ -20,10 +20,10 @@ RUN git clone https://github.com/Klipper3d/klipper.git && \
   cd /klipper && \
   pip install -r /klipper/scripts/klippy-requirements.txt
 
+COPY entrypoint.sh /
+
 WORKDIR /klipper
 
 ENV LOGFILE="/var/log/klippy.log"
 
-ENTRYPOINT python /klipper/klippy/klippy.py \
-  "/klipper-config/printer.cfg" \
-  --logfile="$LOGFILE"
+ENTRYPOINT /entrypoint.sh
