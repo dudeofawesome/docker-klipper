@@ -3,14 +3,24 @@
 ## Usage
 
 ### Environment Variables
-- `API_SOCKET`: string
+
+-   `API_SOCKET`: string
 
     File location for the API socket.
     If not set, then no socket is created.
-- `API_SOCKET_UID_GID`: string, eg: `'1000:1001'`
+
+-   `API_SOCKET_UID_GID`: string, eg: `'1000:1001'`
 
     User and group IDs to `chown` the API socket to.
     If not set, maintains default ownership
+
+### Healthcheck
+
+Here's a semi-naïve healthcheck just checking for the existence the API socket
+
+```
+test "$$(env | grep API_SOCKET | cut -d = -f2-)"
+```
 
 ### Making and flashing firmware updates
 
