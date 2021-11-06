@@ -22,6 +22,7 @@ fi
 # Tail the logfile so we can see its contents via docker logs
 if [ -n "$LOGFILE" ]; then
   tail_logs() {
+    touch "$LOGFILE"
     tail -f "$LOGFILE"
   }
 
