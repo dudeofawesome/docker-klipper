@@ -3,7 +3,6 @@ FROM python:2-alpine
 LABEL maintainer="louis@orleans.io"
 
 VOLUME /klipper-config
-VOLUME /klipper/out/
 
 WORKDIR /
 
@@ -25,5 +24,7 @@ COPY entrypoint.sh /
 WORKDIR /klipper
 
 ENV LOGFILE="/var/log/klippy.log"
+
+VOLUME /klipper/out/
 
 ENTRYPOINT /entrypoint.sh
