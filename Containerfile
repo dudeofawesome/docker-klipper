@@ -19,6 +19,8 @@ RUN git clone 'https://github.com/Klipper3d/klipper.git' && \
   cd /klipper && \
   pip install -r /klipper/scripts/klippy-requirements.txt
 
+RUN wget 'https://raw.githubusercontent.com/th33xitus/kiauh/master/resources/gcode_shell_command.py' -P /klipper/klippy/extras/
+
 COPY entrypoint.sh /
 
 WORKDIR /klipper
